@@ -8,17 +8,12 @@ import Modal from "./components/Modal.vue";
     component: { Modal },
     data() {
         return {
-            title: "My first Vue App :)"
+            title: "My first Vue App :)",
+            header: "Sign up for the Giveaway",
+            text: "Grab you ninja swag for half price",
         };
     },
-    methods: {
-        handleClick() {
-            console.log(this.$refs.name);
-            this.$refs.name.classList.add("active");
-            this.$refs.name.focus();
-        }
-    },
-    components: { Modal }
+    components: { Modal },
 }
 </script>
 
@@ -26,8 +21,10 @@ import Modal from "./components/Modal.vue";
   <!-- <h1>My first vue App</h1> -->
   <h1>{{ title }}</h1>
   <input type="text" ref="name">
+  <div>
+    <Modal :header="header" :text="text" theme="sale" />
+  </div>
   <button @click="handleClick">click me</button>
-  <Modal />
 </template>
 
 <style>
