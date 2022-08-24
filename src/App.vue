@@ -1,44 +1,50 @@
 <script >
 import { def } from '@vue/shared';
 //import { modal } from ".components/Modal.vue";
-import Modal from "./components/Modal.vue";
+import Modal from "./components/Modal.vue"
+
 
   export default{
     name: "App",
-    component: { Modal },
+    components: { Modal, Modal },
     data() {
         return {
             title: "My first Vue App :)",
             header: "Sign up for the Giveaway",
             text: "Grab you ninja swag for half price",
+            showModal: false
         };
     },
-    components: { Modal },
+    methods: {
+      toggleModal(){
+        this.showModal = !this.showModal
+      }
+    },
 }
 </script>
 
 <template>
   <!-- <h1>My first vue App</h1> -->
   <h1>{{ title }}</h1>
-  <input type="text" ref="name">
-  <div>
-    <Modal :header="header" :text="text" theme="sale" />
-  </div>
-  <button @click="handleClick">click me</button>
+  <p>Welcom</p>
+  <!-- <input type="text" ref="name"> -->
+  <div v-if="showModal">
+    <!-- <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/> -->
+    <Modal theme="" @close="toggleModal">
+      <template v-slot:links>
+        <a href="#">sign up now</a>
+        <a href="#">more info</a>
+      </template>
+      <h1>Ninja Giveaway</h1>
+      <p>Grab your ninja swag for half price</p>
+    </Modal>
+  </div >
+  <button @click.alt="toggleModal">open modal (alt)</button>
+  <button @click.shift="toggleModal">open modal (shift)</button>
+  <button @click.right="toggleModal">open modal (right)</button>
 </template>
 
 <style>
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-} */
 #app {
   font-family: Avenir, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
