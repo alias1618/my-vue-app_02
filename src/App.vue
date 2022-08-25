@@ -32,7 +32,7 @@ import Modal from "./components/Modal.vue"
   <h1>{{ title }}</h1>
   <p>Welcom</p>
   <!-- <input type="text" ref="name"> -->
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <!-- <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/> -->
     <Modal theme="" @close="toggleModal">
       <template v-slot:links>
@@ -42,18 +42,19 @@ import Modal from "./components/Modal.vue"
       <h1>Ninja Giveaway</h1>
       <p>Grab your ninja swag for half price</p>
     </Modal>
-  </div >
+  </teleport >
+
 
   <div v-if="showModalTwo">
     <!-- <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/> -->
-    <Modal  @close="toggleModal">
+    <Modal  @close="toggleModalTwo">
       <h1>sign up to the newlwtter</h1>
       <p>For updates and promo codes!</p>
     </Modal>
   </div >
+
   <button @click.alt="toggleModal">open modal (alt)</button>
-  <button @click.shift="toggleModal">open modal (shift)</button>
-  <button @click.right="toggleModal">open modal (right)</button>
+  <button @click="toggleModalTwo">open modal</button>
 </template>
 
 <style>
