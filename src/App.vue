@@ -32,6 +32,7 @@ import Modal from "./components/Modal.vue"
   <h1>{{ title }}</h1>
   <p>Welcom</p>
   <!-- <input type="text" ref="name"> -->
+  <!-- <div v-if="showModal"> -->
   <teleport to=".modals" v-if="showModal">
     <!-- <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/> -->
     <Modal theme="" @close="toggleModal">
@@ -42,8 +43,8 @@ import Modal from "./components/Modal.vue"
       <h1>Ninja Giveaway</h1>
       <p>Grab your ninja swag for half price</p>
     </Modal>
-  </teleport >
-
+  <!-- </div> -->
+  </teleport>
 
   <div v-if="showModalTwo">
     <!-- <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/> -->
@@ -58,7 +59,7 @@ import Modal from "./components/Modal.vue"
 </template>
 
 <style>
-#app {
+#app, .modals {
   font-family: Avenir, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

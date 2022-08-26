@@ -43,6 +43,7 @@
         display: flex;
         justify-content: center; 
         align-items: center; 
+        left: 0px;
     }
     .modal h1 {
         color: #03cfb4;
