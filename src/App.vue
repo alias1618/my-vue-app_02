@@ -46,13 +46,13 @@ import Modal from "./components/Modal.vue"
   <!-- </div> -->
   </teleport>
 
-  <div v-if="showModalTwo">
+  <teleport v-if="showModalTwo">
     <!-- <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/> -->
     <Modal  @close="toggleModalTwo">
       <h1>sign up to the newlwtter</h1>
       <p>For updates and promo codes!</p>
     </Modal>
-  </div >
+  </teleport >
 
   <button @click.alt="toggleModal">open modal (alt)</button>
   <button @click="toggleModalTwo">open modal</button>
